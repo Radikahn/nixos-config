@@ -164,8 +164,11 @@
     protonup-qt
     fprintd
     rustc
+    rustup
+    rust-analyzer
     cargo
     nmap
+    rofi
     #configEnd
   ];
 
