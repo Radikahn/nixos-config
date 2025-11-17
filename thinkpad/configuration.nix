@@ -14,6 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -41,6 +44,17 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+  ];
+
+  #usb utils
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -92,9 +106,14 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  
+  #flatpak because I still am a noob
+  services.flatpak.enable = true;
+
 
   #Allow hyprland
   programs.hyprland.enable = true;
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -152,6 +171,18 @@
 	kitty
 	waybar
 	swww
+	screen
+	zoom-us
+	playerctl
+	vlc
+	usbutils
+	udiskie
+	udisks
+	grimblast
+	brightnessctl
+	uv
+	python3
+	unzip
 	
   
   ];#EOF PKGS
