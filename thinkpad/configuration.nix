@@ -42,23 +42,14 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  #flakes and nix-command
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  #for finger print
-  #nixpkgs.config.allowBroken = true;
-  
   # Enable the X11 windowing system.
+  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Enable the KDE Plasma Desktop Environment.
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
-  #flatpak install
-  services.flatpak.enable = true;
-
-    
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -67,11 +58,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-
- # enable docker virtualization
- virtualisation.docker.enable = true;
-
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -95,82 +81,80 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.radikahn = {
     isNormalUser = true;
-    description = "Radman";
+    description = "radikahn";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+      kdePackages.kate
     #  thunderbird
     ];
   };
+
   # Install firefox.
   programs.firefox.enable = true;
+
+
+  #Allow hyprland
+  programs.hyprland.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  #enable steam
-  programs.steam.enable = true;
-
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    cmatrix
-    neofetch
-    fastfetch
-    vim
-	  helix
-    git
-    neovim
-    spotify
-    alacritty
-    python3
-    vscode
-    steam
-    btop
-    emacs
-    ripgrep
-    gcc_multi
-    docker
-    docker-compose
-    curl
-    coreutils
-    bash
-    bat
-    just
-    nushell
-    ollama
-    openssl
-    parted
-    p7zip
-    pkg-config
-    zellij
-    wget
-    zip
-    gcc
-    clang
-    obsidian
-    zlib
-    xz
-    gdbm
-    tcl
-    tk
-    meson
-    pyenv
-    gettext
-    glib
-    ninja
-    steam-run
-    mangohud
-    protonup-qt
-    fprintd
-    rustc
-    rustup
-    rust-analyzer
-    cargo
-    nmap
-    rofi
-    #configEnd
-  ];
+	neovim
+	alacritty
+	spotify
+	emacs
+	fastfetch
+	helix
+	git
+	vscode
+	steam
+	btop
+	ripgrep
+	gcc_multi
+	docker
+	docker-compose
+	curl
+	coreutils
+	bash
+	bat
+	just
+	nushell
+	openssl
+	parted
+	p7zip
+	pkg-config
+	zellij
+	zip
+	clang
+	obsidian
+	zlib
+	xz
+	gdbm
+	tcl
+	tk
+	gettext
+	meson
+	glib
+	steam-run
+	mangohud
+	protonup-qt
+	fprintd
+	rustc
+	rustup
+	cargo
+	rust-analyzer
+	nmap
+	rofi
+	nodejs_latest
+	kitty
+	waybar
+	swww
+	
+  
+  ];#EOF PKGS
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -198,10 +182,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
-   # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-  };
 
 }
