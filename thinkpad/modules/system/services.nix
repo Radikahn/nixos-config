@@ -11,6 +11,9 @@
       variant = "";
     };
   };
+	
+  #enable bluetooth
+  hardware.bluetooth.enable = true;
   
   # KDE Plasma 6 Desktop Environment
   services.displayManager.sddm.enable = true;

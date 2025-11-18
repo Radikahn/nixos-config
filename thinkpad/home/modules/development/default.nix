@@ -10,7 +10,7 @@
           x = 10;
           y = 10;
         };
-        opacity = 0.95;
+        opacity = 0.8;
         decorations = "full";
       };
       
@@ -53,22 +53,7 @@
       };
     };
   };
-  
-  # Kitty terminal
-  programs.kitty = {
-    enable = true;
-    theme = "Dracula";
-    font = {
-      name = "FiraCode Nerd Font";
-      size = 11;
-    };
-    settings = {
-      background_opacity = "0.95";
-      window_padding_width = 10;
-      enable_audio_bell = false;
-    };
-  };
-  
+   
   # Zellij terminal multiplexer
   programs.zellij.enable = true;
   

@@ -2,7 +2,7 @@
 
 {
   networking = {
-    hostName = "nixos";
+    hostName = "nixpad";
     networkmanager.enable = true;
     
     # Firewall configuration (currently disabled in your config)

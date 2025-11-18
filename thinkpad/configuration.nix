@@ -19,4 +19,10 @@
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  #enable docker service
+  virtualisation.docker.enable = true;
+
+
+
 }

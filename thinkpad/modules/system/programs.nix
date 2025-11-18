@@ -6,4 +6,8 @@
   
   # Hyprland
   programs.hyprland.enable = true;
+
+
+  #nix ld for binaries
+  programs.nix-ld.enable = true;
 }

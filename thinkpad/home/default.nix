@@ -1,13 +1,48 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, globals, ... }:
+let
+  mkGitSymlink = git_path: config.lib.file.mkOutOfStoreSymlink (/. + "${globals.nixos_git_root}/${git_path}");
+in
 {
-
   # Home Manager needs this
   home.stateVersion = "25.05";
   home.username = "radikahn";
   home.homeDirectory = "/home/radikahn";
-  
   programs.home-manager.enable = true;
+  
+
+  #add emacs doom to path
+  home.sessionPath = [ "$HOME/.config/emacs/bin" ];
+
+
+  #home packages
+  home.packages = with pkgs; [
+
+
+    #NEOVIM requirements
+    neovim
+    git
+    tree-sitter
+    gcc
+    jdt-language-server
+    lua5_1
+    lua-language-server
+    luarocks
+    stylua
+    alejandra
+    nixd
+    nodejs
+    pyright
+    ruff
+    nodePackages.prettier
+
+  ];
+ 
+  # Symlink for existing nvim config
+  xdg.configFile."nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nvim";
+    recursive = true;
+  };
+
 
 
   # Alacritty terminal
@@ -19,10 +54,9 @@
           x = 10;
           y = 10;
         };
-        opacity = 0.95;
+        opacity = 0.8;
         decorations = "full";
       };
-      
       font = {
         size = 11.0;
         normal = {
@@ -38,7 +72,6 @@
           style = "Italic";
         };
       };
-      
       colors = {
         primary = {
           background = "0x282a36";
@@ -55,26 +88,10 @@
           white = "0xf8f8f2";
         };
       };
-      
       cursor = {
         style = "Block";
         unfocused_hollow = true;
       };
-    };
-  };
-  
-  # Kitty terminal
-  programs.kitty = {
-    enable = true;
-    theme = "Dracula";
-    font = {
-      name = "FiraCode Nerd Font";
-      size = 11;
-    };
-    settings = {
-      background_opacity = "0.95";
-      window_padding_width = 10;
-      enable_audio_bell = false;
     };
   };
   
@@ -97,7 +114,6 @@
   home.file.".cargo/config.toml".text = ''
     [build]
     jobs = 8
-    
     [term]
     color = "always"
   '';

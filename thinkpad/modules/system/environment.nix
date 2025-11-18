@@ -52,6 +52,8 @@
     pkg-config
     meson
     gdbm
+    jdt-language-server
+    lua-language-server
     
     # CLI utilities
     btop
@@ -64,6 +66,7 @@
     curl
     coreutils
     nmap
+    screen
     zellij
     usbutils
     udiskie
