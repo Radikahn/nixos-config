@@ -31,6 +31,9 @@
     emacs
     helix
     vscode
+    jetbrains.idea-community-bin
+    zed-editor
+    typst
     
     # Terminal emulators
     alacritty
@@ -49,6 +52,7 @@
     python3
     uv
     clang
+    clang-tools
     pkg-config
     meson
     gdbm
@@ -58,6 +62,7 @@
     # CLI utilities
     btop
     fastfetch
+    fzf
     ripgrep
     bat
     just
@@ -88,10 +93,12 @@
     
     # Desktop applications
     spotify
-    steam
     obsidian
     zoom-us
     vlc
+
+    #emulators
+    bottles
     
     # Wayland/Hyprland tools
     rofi
@@ -103,7 +110,6 @@
     
     # System utilities
     parted
-    steam-run
     mangohud
     protonup-qt
     fprintd
