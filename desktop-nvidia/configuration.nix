@@ -11,6 +11,16 @@
     ./modules/system/programs.nix
   ];
 
+  fileSystems."/home/radikahn/games" = {
+    device = "/dev/disk/by-uuid/e2a4781d9-53da-487a-9434-c205a1738fd2";
+    fsType = "ext4";
+    options = [ "defaults" "nofail" "x-systemd.automount" ];
+  };
+
+  systemd.tmpfiles.rules = [
+   "d /home/radikahn/games 0755 radikahn users -"
+  ];
+
   # System-wide configuration
   system.stateVersion = "25.05";
   
@@ -20,9 +30,18 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  #enable docker service
-  virtualisation.docker.enable = true;
 
+  #virtualisation settings
+  virtualisation = {
+    docker.enable = true;
+    libvirtd = {
+      enable = true;
+    };
+  };
+
+
+
+  users.users.radikahn.extraGroups = [ "libvirtd" ]; # Add user to libvirt group
 
 
 }

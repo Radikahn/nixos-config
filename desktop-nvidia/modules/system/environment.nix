@@ -84,18 +84,21 @@
     xz
     
     # Libraries
+    ntfs3g
     openssl
     zlib
     glib
     gettext
     tcl
     tk
+
     
     # Desktop applications
     spotify
     obsidian
     zoom-us
     vlc
+    vesktop
 
     #emulators
     bottles
@@ -107,7 +110,8 @@
     grimblast
     brightnessctl
     playerctl
-    
+    gamescope
+
     # System utilities
     parted
     mangohud

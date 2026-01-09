@@ -5,13 +5,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.supportedFilesystems = [ "ntfs" ];
 
-  #fix i915 drivers
-  boot.kernelParams = [
-     "i915.enable_dc=0"
-     "i915.enable_psr=0"
-     "i915.enable_fbc=0"
-     "intel_idle.max_cstate=1"
-     "softlockup_panic=1" #panic on softlocks
-  ];
+
+  #enable intel virutalisation
+  boot.kernelParams = [ "intel_iommu=on" ];
 }

@@ -21,4 +21,8 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+
+  programs.gamescope = {
+    enable = true;
+  };
 }
