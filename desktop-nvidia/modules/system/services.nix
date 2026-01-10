@@ -58,5 +58,11 @@
   services.flatpak.enable = true;
   
   # SSH (currently disabled in your config)
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = true;
+    };
+  };
+
 }

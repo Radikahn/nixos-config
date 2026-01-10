@@ -117,5 +117,11 @@
     mangohud
     protonup-qt
     fprintd
+
+    #virtualisation
+    virt-manager
+    virt-viewer
+    qemu
+
   ];
 }
