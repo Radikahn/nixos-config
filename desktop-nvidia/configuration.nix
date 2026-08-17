@@ -39,7 +39,7 @@
 
 
   # System-wide configuration
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
   
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

@@ -31,7 +31,7 @@
     emacs
     helix
     vscode
-    jetbrains.idea-community-bin
+    jetbrains.idea-oss
     zed-editor
     typst
     
@@ -53,11 +53,14 @@
     uv
     clang
     clang-tools
+    claude-code
     pkg-config
     meson
+    gnumake
     gdbm
     jdt-language-server
     lua-language-server
+    bun
     
     # CLI utilities
     btop
@@ -76,6 +79,7 @@
     usbutils
     udiskie
     udisks
+    tmux
     
     # Compression/Archive
     p7zip
@@ -99,6 +103,7 @@
     zoom-us
     vlc
     vesktop
+    calcurse
 
     #emulators
     bottles
@@ -117,6 +122,7 @@
     mangohud
     protonup-qt
     fprintd
+    openvpn
 
     #virtualisation
     virt-manager
